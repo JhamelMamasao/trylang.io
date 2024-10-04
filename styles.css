@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+body {
+   background-image: url('frog.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-color: #f8f9fa;
+   font-family: 'Poppins', sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0;
+   min-height: 100vh;
+   background: #0b1522;
+   padding: 0;
+   overflow: hidden;
+}
+
+.title {
+   font-size: 2.5em;
+   color: white;
+   margin-bottom: 20px;
+}
+
+.container {
+   position: relative;
+   width: 60%;
+   max-width: 600px;
+   perspective: 1000px;
+   cursor: pointer;
+   z-index: 5; 
+   justify-items: center;
+}
+
+.flap {
+   width: 107%;
+   height: 50px;
+   background-color: #FFC0CB;
+   border: 2px solid #FFC0CB;
+   border-bottom: none;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 2;
+   transition: transform 1s ease;
+   transform-origin: top;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 20px;
+   color: white;
+   border-radius: 10px 10px 0 0;
+   padding: 20px;
+   box-sizing: border-box;
+   text-align: center;
+   line-height: 1.6;
+   opacity: 1;
+   transform: rotateX(0deg);
+   transition: transform 1s ease, opacity 1s ease;
+   transform-origin: top;
+}
+
+.letter {
+   width: 100%;
+   padding: 20px;
+   background-color: #ffffff;
+   border: 2px solid #FFC0CB;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   line-height: 1.6;
+   opacity: 0;
+   transform: rotateX(-90deg);
+   transition: transform 1s ease, opacity 1s ease;
+   transform-origin: top;
+   color: #333;
+   z-index: 1000;
+}
+
+.container.open .flap {
+   transform: rotateX(-180deg);
+}
+
+.container.open .letter {
+   opacity: 1;
+   transform: rotateX(0deg);
+}
+
+h1 {
+   font-size: 2.5em;
+   color: #FFC0CB;
+   margin-bottom: 20px;
+}
+
+p {
+   margin-bottom: 20px;
+   font-size: 15px;
+   color: black;
+   text-align: justify;
+}
+
+h5 {
+   font-size: 14px;
+   color: #FFC0CB;
+   margin-bottom: 20px;
+}
+
+button {
+   background-color: #FFC0CB;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   font-size: 14px;
+   cursor: pointer;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+}
+
+button:hover {
+   background-color: #FFC0CB;
+}
+
+.audio-container {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   background-color: #FFC0CB;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   padding: 10px;
+   display: flex;
+   flex-direction: column; /* Aligns items in a column */
+   align-items: center;
+   justify-content: center;
+   z-index: 1;
+   width: 150px; /* Set a width to control layout */
+}
+
+.album-art {
+   width: 100%; /* Make the image take up full width */
+   border-radius: 10px; /* Rounded corners */
+   margin-bottom: 10px; /* Space between image and controls */
+}
+
+.controls {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+audio {
+   width: 100%; /* Set width for the audio control */
+   height: 30px; /* Set height for the audio control */
+   outline: none;
+   border: none;
+   background-color: transparent;
+   color: #fff;
+   z-index: 0;
+}
+
+.audio-button {
+   background-color: #ffffff;
+   color: #FFC0CB;
+   border: none;
+   padding: 10px;
+   width: 150px;
+   border-radius: 5px;
+   font-size: 14px;
+   cursor: pointer;
+   transition: background-color 0.3s ease, color 0.3s ease;
+   margin: 0 5px; /* Space between buttons */
+   margin-bottom: 5px;
+}
+
+.audio-button:hover {
+   background-color: #f1f1f1;
+   color: #FFC0CB;
+}
+
+.flower-container {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none; /* Ensure flowers don't interfere with other elements */
+}
+
+.flower {
+   position: absolute;
+   width: 50px;
+   height: 50px;
+}
+
+.flower1 {
+   top: 10px;
+   left: 10px;
+}
+
+.flower2 {
+   top: 10px;
+   right: 10px;
+}
+
+.flower3 {
+   bottom: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+}
+.flowerbody {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+}
+
+.heart {
+   height: 70px;
+   width: 70px;
+   background: #f20044;
+   position: relative;
+   transform: rotate(-45deg);
+   box-shadow: -10px 10px 90px #f20044;
+   animation: heart 0.6s linear infinite;
+}
+@keyframes heart {
+   0% {
+      transform: rotate(-45deg) scale(1.07);
+   }
+   80% {
+      transform: rotate(-45deg) scale(1.0);
+   }
+   100% {
+      transform: rotate(-45deg) scale(0.8);
+   }
+}
+.heart:before{
+   content: '';
+   position: absolute;
+   height: 70px;
+   width: 70px;
+   background: #f20044;
+   top: -50%;
+   border-radius: 50px;
+   box-shadow: -10px 10px 90px #f20044;
+}
+
+.heart:after{
+   content: '';
+   position: absolute;
+   height: 70px;
+   width: 70px;
+   background: #f20044;
+   right: -50%;
+   border-radius: 50px;
+   box-shadow: -10px 10px 90px #f20044;
+}
+.credits {
+   color: #f1f1f1;
+   font-size: 12px;
+   text-align: center;
+   margin-top: 5px; /* Reduce the margin-top to bring it closer to the play button */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   .container {
+      width: 90%;
+      margin: 0 auto; /* Center the container */
+   }
+
+   .flap, .letter {
+      font-size: 16px;
+      padding: 10px;
+   }
+
+   h1 {
+      font-size: 2em;
+   }
+
+   p {
+      font-size: 14px;
+   }
+
+   h5 {
+      font-size: 12px;
+   }
+
+   .audio-container {
+      width: 120px;
+   }
+
+   .audio-button {
+      width: 120px;
+      font-size: 12px;
+   }
+}
+
+/* Additional Media Queries for Smaller Screens */
+@media (max-width: 480px) {
+   .title {
+      font-size: 2em;
+   }
+
+   .flap, .letter {
+      font-size: 14px;
+      padding: 8px;
+   }
+
+   h1 {
+      font-size: 1.5em;
+   }
+
+   p {
+      font-size: 12px;
+   }
+
+   h5 {
+      font-size: 10px;
+   }
+
+   .audio-container {
+      width: 100px;
+   }
+
+   .audio-button {
+      width: 100px;
+      font-size: 10px;
+   }
+
+   .container {
+      width: 100%;
+      margin: 0 auto; /* Center the container */
+   }
+}
